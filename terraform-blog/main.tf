@@ -67,7 +67,7 @@ resource "proxmox_vm_qemu" "Kube-master" {
   # in this case, since we are only adding a single VM, the IP will
   # be 10.98.1.91 since count.index starts at 0. this is how you can create
   # multiple VMs and have an IP assigned to each (.91, .92, .93, etc.)
-  ipconfig0 = "ip=192.168.137.15${count.index + 1}/24,gw=192.168.137.1"
+  ipconfig0 = "ip=192.168.137.15${count.index + 1}/24,gw=192.168.137.2"
   
   # sshkeys set using variables. the variable contains the text of the key.
   sshkeys = <<EOF
@@ -124,7 +124,7 @@ resource "proxmox_vm_qemu" "kube-agent" {
   # in this case, since we are only adding a single VM, the IP will
   # be 10.10.0.50 since count.index starts at 0. this is how you can create
   # multiple VMs and have an IP assigned to each (.51, .52, .53, etc.)
-  ipconfig0 = "ip=192.168.137.15${count.index + 2}/16,gw=192.168.137.1"
+  ipconfig0 = "ip=192.168.137.15${count.index + 2}/16,gw=192.168.137.2"
   
   # sshkeys set using variables. the variable contains the text of the key.
   sshkeys = <<EOF
